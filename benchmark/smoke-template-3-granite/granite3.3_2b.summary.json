@@ -1,0 +1,15 @@
+{
+  "model": "granite3.3:2b",
+  "coldStartDurationMs": null,
+  "coldStartError": "english-correction-failed: model changed text while reporting changed=false",
+  "requests": 30,
+  "errors": 18,
+  "unchangedViolations": 0,
+  "structuralCases": 30,
+  "structuralErrors": 14,
+  "exactReferenceMatches": 5,
+  "p50WallDurationMs": 266.985917,
+  "p95WallDurationMs": 680.60475,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

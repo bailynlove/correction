@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-08-13T04:45:31.557Z",
+  "hostname": "redacted",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "chip": "Apple M5 Pro",
+  "osRelease": "25.5.0",
+  "totalMemoryBytes": 51539607552,
+  "node": "v24.17.0",
+  "runtime": "mlx",
+  "endpoint": "http://127.0.0.1:18080",
+  "ollama": null,
+  "modelDigests": {},
+  "templateVersion": "sparse-edit-v1",
+  "seed": 201400007,
+  "generation": {
+    "contextTokens": 4096,
+    "maxOutputTokens": 256,
+    "keepAlive": "30m",
+    "temperature": 0,
+    "think": false
+  },
+  "protocol": {
+    "runtime": "mlx",
+    "endpoint": "http://127.0.0.1:18080",
+    "models": [
+      "mlx-community/Qwen3.5-9B-MLX-4bit"
+    ],
+    "split": "development",
+    "runs": 1,
+    "limit": 12,
+    "structuralLimit": 20,
+    "outputDirectory": "benchmark/results/development-qwen3.5-9b-sparse-v3-screen",
+    "timeoutMs": 10000,
+    "processor": "sparse",
+    "selectedCases": 12,
+    "structuralCases": 1000
+  }
+}

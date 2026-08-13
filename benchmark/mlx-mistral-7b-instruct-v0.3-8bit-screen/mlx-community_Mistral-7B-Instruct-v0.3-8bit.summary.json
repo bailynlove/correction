@@ -1,0 +1,15 @@
+{
+  "model": "mlx-community/Mistral-7B-Instruct-v0.3-8bit",
+  "coldStartDurationMs": null,
+  "coldStartError": "english-correction-failed: Unexpected token '`', \"\n\n```\n---\n#\n\"... is not valid JSON",
+  "requests": 30,
+  "errors": 30,
+  "unchangedViolations": 0,
+  "structuralCases": 30,
+  "structuralErrors": 30,
+  "exactReferenceMatches": 4,
+  "p50WallDurationMs": null,
+  "p95WallDurationMs": null,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

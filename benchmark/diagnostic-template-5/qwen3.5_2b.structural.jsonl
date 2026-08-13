@@ -1,0 +1,1 @@
+{"model":"qwen3.5:2b","caseId":"generated-protected-0001","category":"protected","run":1,"input":"please inspect `npm test` before continuing.","output":"Please inspect `npm test` before continuing.","resultKind":"transform","wallDurationMs":555.196208,"exactReferenceMatch":false}

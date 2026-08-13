@@ -1,0 +1,15 @@
+{
+  "model": "qwen3.5:2b",
+  "coldStartDurationMs": 1710.846334,
+  "coldStartError": null,
+  "requests": 30,
+  "errors": 8,
+  "unchangedViolations": 2,
+  "structuralCases": 1,
+  "structuralErrors": 0,
+  "exactReferenceMatches": 13,
+  "p50WallDurationMs": 408.316792,
+  "p95WallDurationMs": 868.373625,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

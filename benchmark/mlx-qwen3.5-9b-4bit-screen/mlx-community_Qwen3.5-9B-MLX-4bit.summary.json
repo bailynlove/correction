@@ -1,0 +1,15 @@
+{
+  "model": "mlx-community/Qwen3.5-9B-MLX-4bit",
+  "coldStartDurationMs": 1074.773584,
+  "coldStartError": null,
+  "requests": 30,
+  "errors": 1,
+  "unchangedViolations": 0,
+  "structuralCases": 30,
+  "structuralErrors": 0,
+  "exactReferenceMatches": 21,
+  "p50WallDurationMs": 603.329583,
+  "p95WallDurationMs": 1593.112916,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

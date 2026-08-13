@@ -1,0 +1,15 @@
+{
+  "model": "granite3.3:2b",
+  "coldStartDurationMs": 515.647375,
+  "coldStartError": null,
+  "requests": 30,
+  "errors": 3,
+  "unchangedViolations": 2,
+  "structuralCases": 30,
+  "structuralErrors": 0,
+  "exactReferenceMatches": 12,
+  "p50WallDurationMs": 221.170125,
+  "p95WallDurationMs": 430.0515,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

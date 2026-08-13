@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-08-11T13:20:01.079Z",
+  "hostname": "redacted",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "chip": "Apple M5 Pro",
+  "osRelease": "25.5.0",
+  "totalMemoryBytes": 51539607552,
+  "node": "v24.17.0",
+  "ollama": "0.32.8",
+  "modelDigests": {
+    "gemma3:1b": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "qwen3.5:2b": "324d162be6ca5629ae4517c8710434d0bd2d665bc94dbad46e9af8fbf8a2f0df"
+  },
+  "templateVersion": "1",
+  "seed": 201400007,
+  "generation": {
+    "contextTokens": 4096,
+    "maxOutputTokens": 256,
+    "keepAlive": "30m",
+    "temperature": 0,
+    "think": false
+  },
+  "protocol": {
+    "models": [
+      "qwen3.5:2b",
+      "qwen3:1.7b",
+      "gemma3:1b"
+    ],
+    "split": "development",
+    "runs": 1,
+    "limit": 12,
+    "structuralLimit": 12,
+    "outputDirectory": "benchmark/smoke-screen",
+    "timeoutMs": 10000,
+    "selectedCases": 12,
+    "structuralCases": 1000
+  }
+}

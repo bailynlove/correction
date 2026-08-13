@@ -1,0 +1,19 @@
+{%- set system_message = messages[0]['content'] if messages and messages[0]['role'] == 'system' else '' -%}
+{{- bos_token -}}
+{%- for message in messages -%}
+  {%- if message['role'] == 'system' -%}
+    {%- if not loop.first -%}
+      {{- raise_exception('System message must be first') -}}
+    {%- endif -%}
+  {%- elif message['role'] == 'user' -%}
+    {{- '[INST] ' -}}
+    {%- if system_message and (loop.index0 == 1) -%}
+      {{- system_message + '\n\n' -}}
+    {%- endif -%}
+    {{- message['content'] + ' [/INST]' -}}
+  {%- elif message['role'] == 'assistant' -%}
+    {{- message['content'] + eos_token -}}
+  {%- else -%}
+    {{- raise_exception('Only system, user, and assistant roles are supported') -}}
+  {%- endif -%}
+{%- endfor -%}

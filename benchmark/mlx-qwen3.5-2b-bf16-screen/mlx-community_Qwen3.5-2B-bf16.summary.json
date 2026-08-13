@@ -1,0 +1,15 @@
+{
+  "model": "mlx-community/Qwen3.5-2B-bf16",
+  "coldStartDurationMs": 506.089834,
+  "coldStartError": null,
+  "requests": 30,
+  "errors": 0,
+  "unchangedViolations": 0,
+  "structuralCases": 30,
+  "structuralErrors": 0,
+  "exactReferenceMatches": 9,
+  "p50WallDurationMs": 426.484708,
+  "p95WallDurationMs": 1227.707625,
+  "passesLatencyGate": true,
+  "passesAutomatedHardGates": true
+}

@@ -1,0 +1,14 @@
+{
+  "model": "gemma3:1b",
+  "coldStartDurationMs": 962.111292,
+  "requests": 30,
+  "errors": 17,
+  "unchangedViolations": 2,
+  "structuralCases": 30,
+  "structuralErrors": 3,
+  "exactReferenceMatches": 2,
+  "p50WallDurationMs": 393.093375,
+  "p95WallDurationMs": 629.261125,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

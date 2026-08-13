@@ -1,0 +1,302 @@
+[
+  {
+    "reviewId": "R0001",
+    "caseId": "ordinary-040",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0002",
+    "caseId": "protected-030",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0003",
+    "caseId": "adversarial-025",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0004",
+    "caseId": "semantic-035",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0005",
+    "caseId": "protected-038",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0006",
+    "caseId": "ambiguous-017",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0007",
+    "caseId": "ordinary-050",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0008",
+    "caseId": "protected-040",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0009",
+    "caseId": "protected-035",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0010",
+    "caseId": "ordinary-049",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0011",
+    "caseId": "semantic-026",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0012",
+    "caseId": "protected-039",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0013",
+    "caseId": "ordinary-041",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0014",
+    "caseId": "adversarial-019",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0015",
+    "caseId": "protected-029",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0016",
+    "caseId": "ordinary-043",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0017",
+    "caseId": "semantic-027",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0018",
+    "caseId": "unchanged-024",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0019",
+    "caseId": "adversarial-020",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0020",
+    "caseId": "protected-036",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0021",
+    "caseId": "adversarial-024",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0022",
+    "caseId": "ambiguous-016",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0023",
+    "caseId": "adversarial-023",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0024",
+    "caseId": "ordinary-036",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0025",
+    "caseId": "semantic-032",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0026",
+    "caseId": "unchanged-022",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0027",
+    "caseId": "adversarial-021",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0028",
+    "caseId": "ordinary-047",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0029",
+    "caseId": "semantic-029",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0030",
+    "caseId": "ordinary-038",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0031",
+    "caseId": "semantic-028",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0032",
+    "caseId": "semantic-034",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0033",
+    "caseId": "protected-034",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0034",
+    "caseId": "unchanged-026",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0035",
+    "caseId": "ambiguous-020",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0036",
+    "caseId": "adversarial-022",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0037",
+    "caseId": "ordinary-048",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0038",
+    "caseId": "semantic-025",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0039",
+    "caseId": "protected-033",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0040",
+    "caseId": "unchanged-029",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0041",
+    "caseId": "ambiguous-015",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0042",
+    "caseId": "unchanged-030",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0043",
+    "caseId": "semantic-033",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0044",
+    "caseId": "ambiguous-018",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0045",
+    "caseId": "unchanged-028",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0046",
+    "caseId": "unchanged-027",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0047",
+    "caseId": "semantic-030",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0048",
+    "caseId": "unchanged-025",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0049",
+    "caseId": "ordinary-037",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0050",
+    "caseId": "ordinary-044",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0051",
+    "caseId": "protected-031",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0052",
+    "caseId": "ordinary-046",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0053",
+    "caseId": "ambiguous-019",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0054",
+    "caseId": "ordinary-042",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0055",
+    "caseId": "protected-032",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0056",
+    "caseId": "semantic-031",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0057",
+    "caseId": "ordinary-039",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0058",
+    "caseId": "protected-037",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0059",
+    "caseId": "ordinary-045",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  },
+  {
+    "reviewId": "R0060",
+    "caseId": "unchanged-023",
+    "model": "mlx-community/Qwen3.5-9B-MLX-4bit"
+  }
+]

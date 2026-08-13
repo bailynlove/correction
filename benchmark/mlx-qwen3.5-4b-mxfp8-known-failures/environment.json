@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-08-11T16:12:19.004Z",
+  "hostname": "redacted",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "chip": "Apple M5 Pro",
+  "osRelease": "25.5.0",
+  "totalMemoryBytes": 51539607552,
+  "node": "v24.17.0",
+  "runtime": "mlx",
+  "endpoint": "http://127.0.0.1:18080",
+  "ollama": null,
+  "modelDigests": {},
+  "templateVersion": "5",
+  "seed": 201400007,
+  "generation": {
+    "contextTokens": 4096,
+    "maxOutputTokens": 256,
+    "keepAlive": "30m",
+    "temperature": 0,
+    "think": false
+  },
+  "protocol": {
+    "runtime": "mlx",
+    "endpoint": "http://127.0.0.1:18080",
+    "models": [
+      "mlx-community/Qwen3.5-4B-mxfp8"
+    ],
+    "split": "development",
+    "runs": 1,
+    "caseIds": [
+      "adversarial-008",
+      "protected-009",
+      "ordinary-021",
+      "adversarial-007",
+      "semantic-012"
+    ],
+    "structuralLimit": 1,
+    "outputDirectory": "benchmark/mlx-qwen3.5-4b-mxfp8-known-failures",
+    "timeoutMs": 10000,
+    "selectedCases": 5,
+    "structuralCases": 1000
+  }
+}

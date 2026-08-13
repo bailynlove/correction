@@ -1,0 +1,15 @@
+{
+  "model": "qwen3.5:2b",
+  "coldStartDurationMs": null,
+  "coldStartError": "english-correction-failed: model changed text while reporting changed=false",
+  "requests": 30,
+  "errors": 14,
+  "unchangedViolations": 0,
+  "structuralCases": 30,
+  "structuralErrors": 1,
+  "exactReferenceMatches": 9,
+  "p50WallDurationMs": 486.128542,
+  "p95WallDurationMs": 1183.652875,
+  "passesLatencyGate": false,
+  "passesAutomatedHardGates": false
+}

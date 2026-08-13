@@ -1,0 +1,1 @@
+{"model":"mlx-community/Qwen3.5-9B-MLX-4bit","caseId":"generated-protected-0001","category":"protected","run":1,"input":"please inspect `npm test` before continuing.","output":"Please inspect `npm test` before continuing.","resultKind":"transform","wallDurationMs":1305.649042,"exactReferenceMatch":false}

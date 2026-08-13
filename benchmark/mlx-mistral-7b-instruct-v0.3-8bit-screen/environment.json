@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-08-12T03:08:19.997Z",
+  "hostname": "redacted",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "chip": "Apple M5 Pro",
+  "osRelease": "25.5.0",
+  "totalMemoryBytes": 51539607552,
+  "node": "v24.17.0",
+  "runtime": "mlx",
+  "endpoint": "http://127.0.0.1:18080",
+  "ollama": null,
+  "modelDigests": {},
+  "templateVersion": "5",
+  "seed": 201400007,
+  "generation": {
+    "contextTokens": 4096,
+    "maxOutputTokens": 256,
+    "keepAlive": "30m",
+    "temperature": 0,
+    "think": false
+  },
+  "protocol": {
+    "runtime": "mlx",
+    "endpoint": "http://127.0.0.1:18080",
+    "models": [
+      "mlx-community/Mistral-7B-Instruct-v0.3-8bit"
+    ],
+    "split": "development",
+    "runs": 1,
+    "limit": 30,
+    "structuralLimit": 30,
+    "outputDirectory": "benchmark/mlx-mistral-7b-instruct-v0.3-8bit-screen",
+    "timeoutMs": 15000,
+    "selectedCases": 30,
+    "structuralCases": 1000
+  }
+}

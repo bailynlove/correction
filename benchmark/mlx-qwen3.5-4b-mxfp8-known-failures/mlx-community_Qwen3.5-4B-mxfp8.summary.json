@@ -1,0 +1,15 @@
+{
+  "model": "mlx-community/Qwen3.5-4B-mxfp8",
+  "coldStartDurationMs": 476.380875,
+  "coldStartError": null,
+  "requests": 5,
+  "errors": 0,
+  "unchangedViolations": 0,
+  "structuralCases": 1,
+  "structuralErrors": 0,
+  "exactReferenceMatches": 2,
+  "p50WallDurationMs": 483.981083,
+  "p95WallDurationMs": 867.129875,
+  "passesLatencyGate": true,
+  "passesAutomatedHardGates": true
+}

@@ -1,0 +1,9 @@
+{
+  "model": "qwen3.5:2b",
+  "requests": 3,
+  "errors": 0,
+  "exactReferenceMatches": 2,
+  "p50WallDurationMs": 598.762083,
+  "p95WallDurationMs": 605.496417,
+  "passesLatencyGate": true
+}

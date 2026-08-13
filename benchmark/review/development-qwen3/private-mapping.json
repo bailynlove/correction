@@ -1,0 +1,702 @@
+[
+  {
+    "reviewId": "R0001",
+    "caseId": "protected-012",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0002",
+    "caseId": "semantic-007",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0003",
+    "caseId": "unchanged-009",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0004",
+    "caseId": "protected-025",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0005",
+    "caseId": "ordinary-015",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0006",
+    "caseId": "unchanged-014",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0007",
+    "caseId": "ambiguous-001",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0008",
+    "caseId": "semantic-004",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0009",
+    "caseId": "unchanged-008",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0010",
+    "caseId": "semantic-008",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0011",
+    "caseId": "unchanged-016",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0012",
+    "caseId": "semantic-024",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0013",
+    "caseId": "semantic-010",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0014",
+    "caseId": "semantic-023",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0015",
+    "caseId": "adversarial-014",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0016",
+    "caseId": "adversarial-008",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0017",
+    "caseId": "semantic-017",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0018",
+    "caseId": "ordinary-007",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0019",
+    "caseId": "ordinary-023",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0020",
+    "caseId": "ambiguous-006",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0021",
+    "caseId": "adversarial-018",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0022",
+    "caseId": "semantic-016",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0023",
+    "caseId": "ordinary-016",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0024",
+    "caseId": "unchanged-018",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0025",
+    "caseId": "protected-004",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0026",
+    "caseId": "protected-002",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0027",
+    "caseId": "semantic-002",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0028",
+    "caseId": "unchanged-004",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0029",
+    "caseId": "ordinary-031",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0030",
+    "caseId": "unchanged-007",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0031",
+    "caseId": "semantic-011",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0032",
+    "caseId": "unchanged-002",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0033",
+    "caseId": "semantic-003",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0034",
+    "caseId": "ordinary-025",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0035",
+    "caseId": "ordinary-002",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0036",
+    "caseId": "ordinary-020",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0037",
+    "caseId": "protected-022",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0038",
+    "caseId": "ordinary-014",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0039",
+    "caseId": "ordinary-030",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0040",
+    "caseId": "ordinary-004",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0041",
+    "caseId": "ambiguous-007",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0042",
+    "caseId": "protected-023",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0043",
+    "caseId": "unchanged-001",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0044",
+    "caseId": "unchanged-010",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0045",
+    "caseId": "unchanged-006",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0046",
+    "caseId": "adversarial-009",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0047",
+    "caseId": "unchanged-013",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0048",
+    "caseId": "protected-016",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0049",
+    "caseId": "ambiguous-011",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0050",
+    "caseId": "semantic-006",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0051",
+    "caseId": "unchanged-021",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0052",
+    "caseId": "unchanged-017",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0053",
+    "caseId": "ordinary-005",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0054",
+    "caseId": "protected-017",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0055",
+    "caseId": "ordinary-034",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0056",
+    "caseId": "protected-003",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0057",
+    "caseId": "ordinary-024",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0058",
+    "caseId": "ambiguous-004",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0059",
+    "caseId": "ordinary-019",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0060",
+    "caseId": "adversarial-017",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0061",
+    "caseId": "adversarial-010",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0062",
+    "caseId": "protected-006",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0063",
+    "caseId": "protected-018",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0064",
+    "caseId": "semantic-021",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0065",
+    "caseId": "ordinary-006",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0066",
+    "caseId": "semantic-022",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0067",
+    "caseId": "ambiguous-003",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0068",
+    "caseId": "protected-013",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0069",
+    "caseId": "protected-009",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0070",
+    "caseId": "adversarial-005",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0071",
+    "caseId": "protected-026",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0072",
+    "caseId": "ordinary-012",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0073",
+    "caseId": "ordinary-028",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0074",
+    "caseId": "semantic-015",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0075",
+    "caseId": "ambiguous-014",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0076",
+    "caseId": "ordinary-011",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0077",
+    "caseId": "protected-019",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0078",
+    "caseId": "ambiguous-012",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0079",
+    "caseId": "ordinary-032",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0080",
+    "caseId": "unchanged-020",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0081",
+    "caseId": "unchanged-003",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0082",
+    "caseId": "ambiguous-008",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0083",
+    "caseId": "semantic-018",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0084",
+    "caseId": "protected-005",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0085",
+    "caseId": "adversarial-001",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0086",
+    "caseId": "semantic-019",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0087",
+    "caseId": "adversarial-013",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0088",
+    "caseId": "semantic-009",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0089",
+    "caseId": "semantic-001",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0090",
+    "caseId": "adversarial-012",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0091",
+    "caseId": "semantic-005",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0092",
+    "caseId": "unchanged-019",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0093",
+    "caseId": "ambiguous-013",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0094",
+    "caseId": "ordinary-010",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0095",
+    "caseId": "protected-015",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0096",
+    "caseId": "protected-008",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0097",
+    "caseId": "protected-028",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0098",
+    "caseId": "ordinary-027",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0099",
+    "caseId": "semantic-012",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0100",
+    "caseId": "ambiguous-010",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0101",
+    "caseId": "semantic-013",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0102",
+    "caseId": "unchanged-005",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0103",
+    "caseId": "protected-011",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0104",
+    "caseId": "ambiguous-009",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0105",
+    "caseId": "ordinary-001",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0106",
+    "caseId": "protected-027",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0107",
+    "caseId": "protected-007",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0108",
+    "caseId": "unchanged-012",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0109",
+    "caseId": "ordinary-021",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0110",
+    "caseId": "protected-021",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0111",
+    "caseId": "ordinary-033",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0112",
+    "caseId": "ordinary-008",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0113",
+    "caseId": "ordinary-017",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0114",
+    "caseId": "adversarial-011",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0115",
+    "caseId": "unchanged-011",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0116",
+    "caseId": "adversarial-002",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0117",
+    "caseId": "semantic-014",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0118",
+    "caseId": "protected-024",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0119",
+    "caseId": "ordinary-035",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0120",
+    "caseId": "ordinary-009",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0121",
+    "caseId": "adversarial-003",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0122",
+    "caseId": "ordinary-018",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0123",
+    "caseId": "unchanged-015",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0124",
+    "caseId": "adversarial-007",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0125",
+    "caseId": "ordinary-022",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0126",
+    "caseId": "protected-001",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0127",
+    "caseId": "adversarial-015",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0128",
+    "caseId": "ordinary-026",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0129",
+    "caseId": "protected-020",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0130",
+    "caseId": "protected-014",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0131",
+    "caseId": "adversarial-016",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0132",
+    "caseId": "semantic-020",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0133",
+    "caseId": "protected-010",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0134",
+    "caseId": "ambiguous-005",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0135",
+    "caseId": "adversarial-006",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0136",
+    "caseId": "ordinary-029",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0137",
+    "caseId": "ambiguous-002",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0138",
+    "caseId": "ordinary-013",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0139",
+    "caseId": "adversarial-004",
+    "model": "qwen3:1.7b"
+  },
+  {
+    "reviewId": "R0140",
+    "caseId": "ordinary-003",
+    "model": "qwen3:1.7b"
+  }
+]
