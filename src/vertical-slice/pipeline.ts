@@ -14,9 +14,15 @@ export interface ProcessorTrace {
   readonly code?: string;
 }
 
+export interface PipelineNotice {
+  readonly code: "processor-timeout" | "processor-error";
+  readonly processor: string;
+  readonly message: string;
+}
+
 export type PipelineOutcome =
-  | { readonly kind: "ready"; readonly original: string; readonly candidate: string; readonly risk: Risk; readonly traces: readonly ProcessorTrace[] }
-  | { readonly kind: "review"; readonly original: string; readonly candidate: string; readonly risk: Risk; readonly reasons: readonly string[]; readonly traces: readonly ProcessorTrace[] }
+  | { readonly kind: "ready"; readonly original: string; readonly candidate: string; readonly risk: Risk; readonly notices: readonly PipelineNotice[]; readonly traces: readonly ProcessorTrace[] }
+  | { readonly kind: "review"; readonly original: string; readonly candidate: string; readonly risk: Risk; readonly reasons: readonly string[]; readonly notices: readonly PipelineNotice[]; readonly traces: readonly ProcessorTrace[] }
   | { readonly kind: "blocked"; readonly original: string; readonly reason: string; readonly traces: readonly ProcessorTrace[] }
   | { readonly kind: "failed"; readonly original: string; readonly reason: string; readonly traces: readonly ProcessorTrace[] };
 
@@ -26,17 +32,45 @@ function combineRisk(left: Risk, right: Risk): Risk {
   return "low";
 }
 
-async function withTimeout<T>(
+class DeadlineExceededError extends Error {
+  readonly scope: "processor" | "pipeline";
+
+  constructor(scope: "processor" | "pipeline") {
+    super(`${scope} timed out`);
+    this.name = "DeadlineExceededError";
+    this.scope = scope;
+  }
+}
+
+async function withDeadline<T>(
   work: (signal: AbortSignal) => Promise<T>,
   timeoutMs: number,
   parentSignal: AbortSignal,
 ): Promise<T> {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(new Error("processor timed out")), timeoutMs);
+  const processorError = new DeadlineExceededError("processor");
+  let timer: NodeJS.Timeout | undefined;
+  let onParentAbort: (() => void) | undefined;
+  const processorDeadline = new Promise<never>((_resolve, reject) => {
+    timer = setTimeout(() => {
+      reject(processorError);
+      controller.abort(processorError);
+    }, timeoutMs);
+  });
+  const pipelineDeadline = new Promise<never>((_resolve, reject) => {
+    onParentAbort = () => reject(new DeadlineExceededError("pipeline"));
+    if (parentSignal.aborted) onParentAbort();
+    else parentSignal.addEventListener("abort", onParentAbort, { once: true });
+  });
   try {
-    return await work(AbortSignal.any([controller.signal, parentSignal]));
+    return await Promise.race([
+      work(AbortSignal.any([controller.signal, parentSignal])),
+      processorDeadline,
+      pipelineDeadline,
+    ]);
   } finally {
-    clearTimeout(timer);
+    if (timer !== undefined) clearTimeout(timer);
+    if (onParentAbort !== undefined) parentSignal.removeEventListener("abort", onParentAbort);
   }
 }
 
@@ -66,6 +100,7 @@ export class PromptPipeline {
     let candidate = original;
     let risk: Risk = "low";
     const reasons: string[] = [];
+    const notices: PipelineNotice[] = [];
     const traces: ProcessorTrace[] = [];
 
     for (const configured of this.#processors) {
@@ -75,14 +110,23 @@ export class PromptPipeline {
       const startedAt = performance.now();
       let result;
       try {
-        result = await withTimeout(
+        result = await withDeadline(
           (signal) => configured.processor.process(original, candidate, { host: "codex" }, signal),
           configured.timeoutMs,
           pipelineSignal,
         );
       } catch (error) {
-        const timeout = pipelineSignal.aborted
-          || (error instanceof Error && /abort|timed out/i.test(error.message));
+        const deadline = error instanceof DeadlineExceededError ? error.scope : undefined;
+        if (deadline === "pipeline" || pipelineSignal.aborted) {
+          traces.push({
+            processor: configured.name,
+            result: "timeout",
+            durationMs: performance.now() - startedAt,
+            code: "pipeline-timeout",
+          });
+          return { kind: "failed", original, reason: "pipeline timed out", traces };
+        }
+        const timeout = deadline === "processor";
         traces.push({
           processor: configured.name,
           result: timeout ? "timeout" : "error",
@@ -90,8 +134,15 @@ export class PromptPipeline {
           code: timeout ? "processor-timeout" : "processor-threw",
         });
         if (configured.onError === "block") {
-          return { kind: "failed", original, reason: pipelineSignal.aborted ? "pipeline timed out" : timeout ? "processor timed out" : "processor failed", traces };
+          return { kind: "failed", original, reason: timeout ? `${configured.name} timed out` : `${configured.name} failed`, traces };
         }
+        notices.push({
+          code: timeout ? "processor-timeout" : "processor-error",
+          processor: configured.name,
+          message: timeout
+            ? `${configured.name} timed out; the current prompt was preserved.`
+            : `${configured.name} failed; the current prompt was preserved.`,
+        });
         continue;
       }
 
@@ -106,6 +157,11 @@ export class PromptPipeline {
       if (result.kind === "error") {
         if (pipelineSignal.aborted) return { kind: "failed", original, reason: "pipeline timed out", traces };
         if (configured.onError === "block") return { kind: "failed", original, reason: result.message, traces };
+        notices.push({
+          code: "processor-error",
+          processor: configured.name,
+          message: `${configured.name} failed; the current prompt was preserved.`,
+        });
         continue;
       }
       candidate = result.candidate;
@@ -113,7 +169,7 @@ export class PromptPipeline {
       reasons.push(...result.reasons);
     }
 
-    if (candidate === original) return { kind: "ready", original, candidate, risk, traces };
-    return { kind: "review", original, candidate, risk, reasons, traces };
+    if (candidate === original) return { kind: "ready", original, candidate, risk, notices, traces };
+    return { kind: "review", original, candidate, risk, reasons, notices, traces };
   }
 }

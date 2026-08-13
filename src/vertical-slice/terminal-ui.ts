@@ -20,6 +20,9 @@ export class TerminalUi implements Reviewer {
   }
 
   async review(outcome: ReviewableOutcome): Promise<ReviewDecision> {
+    for (const notice of outcome.notices) {
+      stdout.write(`\nCorrection notice: ${notice.message}\n`);
+    }
     if (outcome.original === outcome.candidate) {
       stdout.write("\nNo correction proposed.\n");
     } else {
