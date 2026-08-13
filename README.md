@@ -194,9 +194,17 @@ British-to-American changes on already-correct development prompts and still
 recorded a 2.511-second development p95. The holdout was not exposed after that
 development failure.
 
-The open product decision is whether v0.1 should use bounded fail-open,
-length-aware bypass, a relaxed latency target, or continue searching for a new
-model/runtime. See [issue #12](https://github.com/bailynlove/correction/issues/12).
+v0.1 uses bounded fail-open: English correction receives a default 1.8-second
+deadline inside the two-second pipeline budget. A timeout preserves the original
+prompt and continues to review with an explicit reason. Deadline compliance and
+correction coverage are reported separately; a timed-out prompt does not count
+as successfully corrected. See
+[`docs/adr/0003-bounded-fail-open-latency.md`](docs/adr/0003-bounded-fail-open-latency.md).
+
+The frozen five-run holdout validation recorded 1.802-second outcome p95,
+200/300 completed processor checks, 100/300 bounded timeouts, and zero late
+candidate violations. See
+[`benchmark/bounded-fail-open-validation.md`](benchmark/bounded-fail-open-validation.md).
 
 ## Development
 

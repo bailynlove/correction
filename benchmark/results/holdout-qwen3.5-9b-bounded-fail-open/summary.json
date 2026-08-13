@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-08-13T06:00:54.566Z",
+  "model": "mlx-community/Qwen3.5-9B-MLX-4bit",
+  "runtime": "mlx",
+  "split": "holdout",
+  "runs": 5,
+  "processorTimeoutMs": 1800,
+  "pipelineTimeoutMs": 2000,
+  "requests": 300,
+  "completed": 200,
+  "completedRate": 0.6666666666666666,
+  "transformed": 113,
+  "transformedRate": 0.37666666666666665,
+  "timeouts": 100,
+  "timeoutRate": 0.3333333333333333,
+  "p95OutcomeDurationMs": 1801.930541000038,
+  "byLengthBand": {
+    "000-249": {
+      "requests": 225,
+      "completed": 200,
+      "completedRate": 0.8888888888888888,
+      "transformed": 113,
+      "transformedRate": 0.5022222222222222,
+      "timeouts": 25,
+      "timeoutRate": 0.1111111111111111,
+      "p95OutcomeDurationMs": 1801.3591250000027
+    },
+    "250-499": {
+      "requests": 0,
+      "completed": 0,
+      "completedRate": null,
+      "transformed": 0,
+      "transformedRate": null,
+      "timeouts": 0,
+      "timeoutRate": null,
+      "p95OutcomeDurationMs": null
+    },
+    "500-649": {
+      "requests": 0,
+      "completed": 0,
+      "completedRate": null,
+      "transformed": 0,
+      "transformedRate": null,
+      "timeouts": 0,
+      "timeoutRate": null,
+      "p95OutcomeDurationMs": null
+    },
+    "650+": {
+      "requests": 75,
+      "completed": 0,
+      "completedRate": 0,
+      "transformed": 0,
+      "transformedRate": 0,
+      "timeouts": 75,
+      "timeoutRate": 1,
+      "p95OutcomeDurationMs": 1802.172749999998
+    }
+  },
+  "lateCandidateViolations": 0,
+  "failedOutcomes": 0,
+  "passesOutcomeLatencyGate": true
+}
