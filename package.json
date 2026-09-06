@@ -1,8 +1,24 @@
 {
   "name": "correction",
   "version": "0.0.0",
+  "description": "A local-first prompt pipeline for coding agents",
   "private": true,
   "type": "module",
+  "keywords": [
+    "pi-package",
+    "prompt-correction",
+    "coding-agent"
+  ],
+  "files": [
+    "src/**/*.ts",
+    "plugins/correction",
+    "CONTEXT.md"
+  ],
+  "pi": {
+    "extensions": [
+      "./src/integrations/pi-extension.ts"
+    ]
+  },
   "engines": {
     "node": ">=24 <25"
   },
@@ -13,6 +29,7 @@
     "benchmark:bounded": "npm run build && node dist/src/benchmark/run-bounded-latency.js",
     "benchmark:review": "npm run build && node dist/src/benchmark/prepare-review.js",
     "prototype:risky": "npm run build && node dist/src/prototypes/risky-approval/tui.js",
+    "plugin:pi": "npm run build && pi -e dist/src/integrations/pi-extension.js",
     "prototype:codex": "npm run build && node dist/src/vertical-slice/cli.js codex",
     "prototype:codex:demo": "npm run build && node dist/src/vertical-slice/cli.js codex --demo"
   },

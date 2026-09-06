@@ -147,7 +147,7 @@ async function main(): Promise<void> {
     timeoutMs: options.processorTimeoutMs,
   }], options.pipelineTimeoutMs);
 
-  await pipeline.run("this sentence need correction");
+  await pipeline.run("this sentence need correction", { host: "benchmark" });
   const cases = curatedCorpus().filter((testCase) => testCase.split === options.split);
   const schedule = shuffled(
     cases.flatMap((testCase) => Array.from({ length: options.runs }, (_, run) => ({ testCase, run: run + 1 }))),
@@ -156,7 +156,7 @@ async function main(): Promise<void> {
   const records: RecordEntry[] = [];
   for (const [index, scheduled] of schedule.entries()) {
     const startedAt = performance.now();
-    const outcome = await pipeline.run(scheduled.testCase.input);
+    const outcome = await pipeline.run(scheduled.testCase.input, { host: "benchmark" });
     const wallDurationMs = performance.now() - startedAt;
     const trace = outcome.traces[0];
     const candidate = outcome.kind === "ready" || outcome.kind === "review"

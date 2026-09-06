@@ -1,4 +1,4 @@
-import type { Processor, Risk } from "../pipeline/processor.js";
+import type { ProcessingContext, Processor, Risk } from "../pipeline/processor.js";
 
 export interface ConfiguredProcessor {
   readonly name: string;
@@ -83,20 +83,24 @@ export class PromptPipeline {
     this.#timeoutMs = timeoutMs;
   }
 
-  async run(original: string): Promise<PipelineOutcome> {
+  async run(original: string, context: ProcessingContext): Promise<PipelineOutcome> {
     const pipelineController = new AbortController();
     const pipelineTimer = setTimeout(
       () => pipelineController.abort(new Error("pipeline timed out")),
       this.#timeoutMs,
     );
     try {
-      return await this.#run(original, pipelineController.signal);
+      return await this.#run(original, context, pipelineController.signal);
     } finally {
       clearTimeout(pipelineTimer);
     }
   }
 
-  async #run(original: string, pipelineSignal: AbortSignal): Promise<PipelineOutcome> {
+  async #run(
+    original: string,
+    context: ProcessingContext,
+    pipelineSignal: AbortSignal,
+  ): Promise<PipelineOutcome> {
     let candidate = original;
     let risk: Risk = "low";
     const reasons: string[] = [];
@@ -111,7 +115,7 @@ export class PromptPipeline {
       let result;
       try {
         result = await withDeadline(
-          (signal) => configured.processor.process(original, candidate, { host: "codex" }, signal),
+          (signal) => configured.processor.process(original, candidate, context, signal),
           configured.timeoutMs,
           pipelineSignal,
         );

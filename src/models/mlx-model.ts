@@ -47,6 +47,9 @@ export class MlxModel implements StructuredModel {
         stream: false,
         temperature: request.options.temperature,
         max_tokens: request.options.maxOutputTokens,
+        chat_template_kwargs: {
+          enable_thinking: request.options.think,
+        },
       }),
       signal,
     });

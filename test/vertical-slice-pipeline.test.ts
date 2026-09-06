@@ -33,6 +33,23 @@ function delay(milliseconds: number): Promise<void> {
 }
 
 describe("PromptPipeline deadlines", () => {
+  it("passes the active host to every processor", async () => {
+    let observedHost: string | undefined;
+    const processor: Processor = {
+      process: async (_original, _candidate, context) => {
+        observedHost = context.host;
+        return { kind: "pass", metrics };
+      },
+    };
+    const pipeline = new PromptPipeline([
+      { name: "corrector", processor, onError: "continue", timeoutMs: 50 },
+    ], 100);
+
+    await pipeline.run("Original prompt.", { host: "pi" });
+
+    assert.equal(observedHost, "pi");
+  });
+
   it("fails open at the processor deadline and preserves the original", async () => {
     const processor = scriptedProcessor(async () => {
       await delay(80);
@@ -48,7 +65,7 @@ describe("PromptPipeline deadlines", () => {
       { name: "corrector", processor, onError: "continue", timeoutMs: 10 },
     ], 100);
 
-    const outcome = await pipeline.run("Original prompt.");
+    const outcome = await pipeline.run("Original prompt.", { host: "test" });
 
     assert.equal(outcome.kind, "ready");
     if (outcome.kind === "ready") {
@@ -70,7 +87,7 @@ describe("PromptPipeline deadlines", () => {
       { name: "security", processor, onError: "block", timeoutMs: 5 },
     ], 100);
 
-    const outcome = await pipeline.run("Original prompt.");
+    const outcome = await pipeline.run("Original prompt.", { host: "test" });
 
     assert.deepEqual(outcome.kind, "failed");
     if (outcome.kind === "failed") assert.equal(outcome.reason, "security timed out");
@@ -85,7 +102,7 @@ describe("PromptPipeline deadlines", () => {
       { name: "corrector", processor, onError: "continue", timeoutMs: 100 },
     ], 10);
 
-    const outcome = await pipeline.run("Original prompt.");
+    const outcome = await pipeline.run("Original prompt.", { host: "test" });
 
     assert.equal(outcome.kind, "failed");
     if (outcome.kind === "failed") assert.equal(outcome.reason, "pipeline timed out");
@@ -100,7 +117,7 @@ describe("PromptPipeline deadlines", () => {
       { name: "corrector", processor, onError: "continue", timeoutMs: 50 },
     ], 100);
 
-    const outcome = await pipeline.run("Original prompt.");
+    const outcome = await pipeline.run("Original prompt.", { host: "test" });
 
     assert.equal(outcome.kind, "ready");
     if (outcome.kind === "ready") {

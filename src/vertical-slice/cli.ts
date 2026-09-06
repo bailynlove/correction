@@ -3,19 +3,16 @@ import process from "node:process";
 
 import type { z } from "zod";
 
-import { MlxModel } from "../models/mlx-model.js";
-import { OllamaModel } from "../models/ollama-model.js";
 import type {
   GenerationMetrics,
   StructuredGeneration,
   StructuredGenerationResult,
   StructuredModel,
 } from "../models/structured-model.js";
-import { EnglishCorrection } from "../processors/english-correction/english-correction.js";
 import { CodexHost } from "./codex-host.js";
-import { durationMs, loadConfig } from "./config.js";
+import { createConfiguredPipeline } from "./configured-pipeline.js";
+import { loadConfig } from "./config.js";
 import { diagnostic, promptMetadata, traceMetadata } from "./diagnostics.js";
-import { PromptPipeline, type ConfiguredProcessor } from "./pipeline.js";
 import { CorrectionSession, type HostSession } from "./session.js";
 import { TerminalUi } from "./terminal-ui.js";
 
@@ -87,10 +84,6 @@ class DemoHost implements HostSession {
   async close(): Promise<void> {}
 }
 
-function modelFor(kind: "ollama" | "mlx", endpoint: string): StructuredModel {
-  return kind === "ollama" ? new OllamaModel(endpoint) : new MlxModel(endpoint);
-}
-
 async function main(): Promise<void> {
   const args = parseArguments(process.argv.slice(2));
   const loaded = loadConfig({
@@ -103,26 +96,9 @@ async function main(): Promise<void> {
     content_logging: loaded.config.diagnostics.content,
   });
 
-  const processors: ConfiguredProcessor[] = [];
-  for (const name of loaded.config.pipeline.processors) {
-    const configured = loaded.config.processors[name];
-    if (configured === undefined || !configured.enabled) continue;
-    const runtime = loaded.config.runtimes[configured.runtime];
-    if (runtime === undefined) throw new Error(`missing runtime ${configured.runtime}`);
-    const model = args.demo ? new DemoModel() : modelFor(runtime.kind, runtime.endpoint);
-    processors.push({
-      name,
-      onError: configured.on_error,
-      timeoutMs: durationMs(configured.timeout),
-      processor: new EnglishCorrection(model, {
-        model: configured.model,
-        contextTokens: configured.options.context_tokens,
-        maxOutputTokens: configured.options.max_output_tokens,
-        keepAlive: runtime.keep_alive,
-        temperature: configured.options.temperature,
-      }),
-    });
-  }
+  const pipeline = args.demo
+    ? createConfiguredPipeline(loaded.config, () => new DemoModel())
+    : createConfiguredPipeline(loaded.config);
 
   const ui = new TerminalUi();
   let host: HostSession | undefined;
@@ -139,7 +115,7 @@ async function main(): Promise<void> {
         });
     process.stdout.write(`Correction connected to Codex thread ${host.threadId}. Type :quit to exit.\n`);
     const session = new CorrectionSession(
-      new PromptPipeline(processors, durationMs(loaded.config.pipeline.timeout)),
+      pipeline,
       ui,
       host,
       {

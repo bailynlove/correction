@@ -5,9 +5,10 @@ user prompt before the host agent sees it, preserving technical content while a
 configurable processor corrects natural-language text or performs another
 policy check.
 
-The current prototype provides a British-English correction pipeline and a
-terminal client for Codex. Correction owns the approval interaction; Codex owns
-the agent thread through its App Server protocol.
+The current prototype provides a British-English correction pipeline and a Pi
+extension that keeps Pi's native terminal interface. Codex keeps its native TUI
+too, but its package intentionally does not rewrite prompts because Codex hooks
+do not expose prompt replacement.
 
 > [!IMPORTANT]
 > This repository is an experimental prototype, not a production release. No
@@ -19,34 +20,36 @@ the agent thread through its App Server protocol.
   runtimes.
 - Exact masking and restoration of code, paths, URLs, commands, identifiers,
   numbers, secrets, and other protected spans.
-- Approve, edit, bypass, and cancel interaction before a prompt reaches Codex.
+- Approve, edit, bypass, and cancel interaction inside Pi's native TUI.
 - `always`, experimental `risky`, and `never` approval policies.
 - Configurable fail-open or fail-closed processor errors.
 - Strict user and repository TOML layering plus a safe approval-mode CLI
   override, designed around explicit trust boundaries.
 - Content-free JSONL diagnostics by default.
-- A real, streamed Codex session over `codex app-server` stdio.
+- A Pi input extension that preserves commands, skills, templates, images,
+  history, and the rest of Pi's interaction lifecycle.
+- A retained Codex App Server reference prototype for protocol diagnostics.
 
 ## How it fits together
 
 ```text
-terminal input
-    │
-    ▼
-protected-span projection → configured processors → approval/review
-                                                    │
-                                                    ▼
-                                        Codex App Server thread
+Pi TUI input → protected-span projection → configured processors → Pi review
+    │                                                               │
+    └──────── commands, skills, and templates stay in Pi ───────────┘
+
+Codex TUI input → unchanged Codex lifecycle (English correction inactive)
 ```
 
-The pipeline and processor contracts are host-neutral. The first adapter targets
-Codex; Pi and Kimi CLI adapters are future work.
+The pipeline and processor contracts are host-neutral. Pi is the first
+transforming host adapter. The Codex package is deliberately non-transforming;
+Kimi CLI remains future work.
 
 ## Requirements
 
 - macOS on Apple Silicon for the evaluated MLX path.
 - Node.js 24.
-- Codex CLI `0.147.0` for the pinned prototype adapter.
+- Pi `0.82.1` for the transforming extension.
+- Codex CLI `0.147.0` only for the retained App Server reference prototype.
 - A separately installed local model runtime for real correction:
   [Ollama](https://ollama.com/) or [MLX-LM](https://github.com/ml-explore/mlx-lm).
 
@@ -54,12 +57,12 @@ Correction does not download or manage model weights automatically.
 
 ## Quick start
 
-Install dependencies and run the deterministic demo, which does not call a
-model or Codex account:
+Install dependencies, start the configured local runtime, and launch Pi with
+the Correction extension:
 
 ```sh
 npm ci
-npm run prototype:codex:demo
+npm run plugin:pi
 ```
 
 At the prompt, try:
@@ -68,12 +71,22 @@ At the prompt, try:
 Can you helps me change color in `src/app.ts`?
 ```
 
-The review screen will propose British-English corrections while keeping the
-inline path unchanged.
+Pi keeps its normal composer and commands. When ordinary input produces a
+candidate, a Pi-native review dialog offers approve, edit, bypass, or cancel.
+The inline path remains unchanged.
 
-To use a configured local model with the installed Codex CLI:
+The built-in configuration expects Ollama at `http://127.0.0.1:11434` with
+`qwen3.5:2b`. Configure the evaluated MLX model as shown below when using the
+quality-reference path.
+
+Pi package discovery is also declared in `package.json`, so a published or
+Git-installed checkout can load `src/integrations/pi-extension.ts` as an
+extension.
+
+The old deterministic and real Codex clients remain available for diagnostics:
 
 ```sh
+npm run prototype:codex:demo
 npm run prototype:codex
 ```
 
@@ -84,7 +97,8 @@ npm run prototype:codex -- --resume THREAD_ID
 npm run prototype:codex -- --config /absolute/path/config.toml
 ```
 
-Type `:quit` to close the client.
+These clients replace the Codex TUI and are no longer the recommended way to
+use Correction. Type `:quit` to close them.
 
 ## Configuration
 
@@ -161,9 +175,10 @@ policies but cannot weaken user-level trust settings.
   classifier is not calibrated for production, so this mode is experimental.
 - `never` sends the candidate without an approval prompt.
 
-Bypass sends the immutable original prompt. Cancel sends nothing. An edit is
-processed again, with a configurable maximum number of review cycles. Processor
-blocks cannot be bypassed.
+Bypass restores the original prompt for the current pipeline attempt. Cancel
+sends nothing. An edit begins a new attempt and is processed again, with a
+configurable maximum number of review cycles. Processor blocks cannot be
+bypassed.
 
 ## Safety and privacy
 
@@ -213,6 +228,7 @@ npm run build
 npm test
 npm run benchmark -- --runtime ollama --models qwen3.5:2b --limit 5 --runs 1 --structural-limit 10
 npm run prototype:risky
+npm run plugin:pi
 npm run prototype:codex:demo
 ```
 
@@ -220,8 +236,11 @@ Important locations:
 
 - `src/processors/english-correction/` — correction, prompt template, masking,
   and semantic checks.
-- `src/vertical-slice/` — configuration, pipeline, terminal review, and Codex
-  host adapter.
+- `src/integrations/pi-extension.ts` — Pi-native transforming host adapter.
+- `src/vertical-slice/` — configuration, mediation, pipeline, and retained Codex
+  reference adapter.
+- `plugins/correction/` — non-transforming Codex plugin package and capability
+  boundary.
 - `src/benchmark/` — frozen corpus and benchmark runner.
 - `benchmark/` — recorded evidence and decision reports.
 - `docs/adr/` — architectural decisions.
@@ -233,11 +252,15 @@ The Codex adapter protocol pin and regeneration commands are documented in
 
 ## Known prototype limitations
 
-- The terminal accepts line-oriented text only.
-- Multimodal prompts are not supported.
-- Codex user-input requests and MCP elicitation are not forwarded yet.
-- Generated Codex protocol bindings are not committed yet; the adapter uses a
-  documented narrow protocol snapshot.
+- English correction is unavailable in the native Codex TUI because
+  `UserPromptSubmit` cannot replace prompts.
+- The Pi integration requires dialog-capable TUI or RPC mode. It preserves
+  prompts unchanged in print and JSON modes.
+- The retained Codex client accepts line-oriented text only, does not support
+  multimodal prompts, and does not forward user-input requests or MCP
+  elicitation.
+- Generated Codex protocol bindings are not committed; the reference adapter
+  uses a documented narrow protocol snapshot.
 - `never` mode does not yet render a non-blocking diff before submission.
 - There is no installer, packaged executable, auto-update, or bundled runtime.
 
