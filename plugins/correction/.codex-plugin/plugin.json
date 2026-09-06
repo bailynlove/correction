@@ -1,0 +1,17 @@
+{
+  "name": "correction",
+  "version": "0.1.0",
+  "description": "Correction compatibility package for the native Codex TUI",
+  "author": {
+    "name": "Local developer"
+  },
+  "interface": {
+    "displayName": "Correction",
+    "shortDescription": "Keep Codex native; prompts are not rewritten.",
+    "longDescription": "Correction preserves the complete native Codex TUI. English correction is intentionally inactive because Codex UserPromptSubmit hooks cannot replace submitted prompts.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": ["Native Codex TUI"],
+    "defaultPrompt": "Explain Correction's Codex capability boundary."
+  }
+}
